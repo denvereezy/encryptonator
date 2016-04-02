@@ -1,0 +1,21 @@
+{
+  "name": "encryptonator",
+  "version": "0.0.0",
+  "description": "module using bcrypt to hash passwords",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "bcrypt": "~0.8.5",
+    "bluebird": "~3.2.2"
+  },
+  "devDependencies": {
+    "mocha": "~2.4.5"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Denver Daniels",
+  "license": "BSD-2-Clause"
+}
