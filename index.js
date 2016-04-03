@@ -1,10 +1,10 @@
-const encrypt = require('./encryptonator');
+const encryptonator = require('./encryptonator');
 
 function myFunction(password) {
 
-  encrypt.encryptPassword(password)
+  encryptonator.encryptPassword(password)
     .then(function(hash) {
-      return encrypt.comparePassword(password, hash);
+      return encryptonator.comparePassword(password, hash);
     })
     .then(function(match) {
       console.log(match);
