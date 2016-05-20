@@ -4,9 +4,9 @@ This module was created to make the process of encrypting passwords more conveni
 Only supporting promises.
 
 ## How to install
-  ` npm install git+https://git@github.com/denvereezy/encryptonator.git`
-  
-  
+  ` npm install encryptonator`
+
+
 ## Basic usage:
 
 ### To encrypt password
