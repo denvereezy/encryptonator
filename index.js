@@ -4,6 +4,7 @@ function myFunction(password) {
 
   encryptonator.encryptPassword(password)
     .then(function(hash) {
+console.log(hash);
       return encryptonator.comparePassword(password, hash);
     })
     .then(function(match) {
@@ -13,4 +14,4 @@ function myFunction(password) {
       next(err);
     })
 };
-myFunction(123);
+myFunction('root123');
