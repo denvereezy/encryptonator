@@ -1,17 +1,28 @@
-const encryptonator = require('./encryptonator');
+const Promise = require('bluebird');
+const bcrypt = require('bcrypt');
 
-function myFunction(password) {
-
-  encryptonator.encryptPassword(password)
-    .then(function(hash) {
-console.log(hash);
-      return encryptonator.comparePassword(password, hash);
-    })
-    .then(function(match) {
-      console.log(match);
-    })
-    .catch(function(err) {
-      next(err);
-    })
+exports.encryptPassword = function(password) {
+  const passwordToEncrypt = password.toString();
+  return new Promise(function(resolve, reject) {
+    bcrypt.genSalt(10, function(err, salt) {
+      bcrypt.hash(passwordToEncrypt, salt, function(err, hash) {
+        if (err) {
+          return reject(err);
+        }
+        resolve(hash)
+      });
+    });
+  });
 };
-myFunction('root123');
+
+exports.comparePassword = function(password, hash) {
+  const passwordToCompare = password.toString();
+  return new Promise(function(resolve, reject) {
+    bcrypt.compare(passwordToCompare, hash, function(err, pass) {
+      if (err) {
+        return reject(err);
+      }
+      resolve(pass)
+    });
+  });
+};
