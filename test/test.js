@@ -1,12 +1,11 @@
 const assert = require('assert');
-const encryptonator = require('../encryptonator');
+const encryptonator = require('../index');
 
-describe("Testing my hash module", function() {
+describe("Testing encryptonator module", function() {
   it('should return a hash for any password inserted', function(done) {
     const password = 123;
     encryptonator.encryptPassword(password)
       .then(function(result) {
-        console.log(result);
         assert(result);
         done();
       });
@@ -19,7 +18,6 @@ describe("Testing my hash module", function() {
         return encryptonator.comparePassword(password, hash);
       })
       .then(function(match){
-        console.log(match);
         assert(match, 'true');
         done();
       })
