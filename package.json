@@ -16,7 +16,7 @@
   "scripts": {
     "test": "mocha"
   },
-  "keywords": [],
+  "keywords": ["password", "auth", "crypt","encrypt"],
   "author": "Denver Daniels",
   "license": "ISC"
 }
