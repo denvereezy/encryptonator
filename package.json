@@ -1,6 +1,6 @@
 {
   "name": "encryptonator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "module using bcrypt to hash passwords",
   "main": "index.js",
   "directories": {
@@ -16,7 +16,12 @@
   "scripts": {
     "test": "mocha"
   },
-  "keywords": ["password", "auth", "crypt","encrypt"],
+  "keywords": [
+    "password",
+    "auth",
+    "crypt",
+    "encrypt"
+  ],
   "author": "Denver Daniels",
   "license": "ISC"
 }
