@@ -1,7 +1,7 @@
 {
   "name": "encryptonator",
   "version": "1.0.1",
-  "description": "module using bcrypt to hash passwords",
+  "description": "module making it easy to encrypt passwords",
   "main": "index.js",
   "directories": {
     "test": "test"
