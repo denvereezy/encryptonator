@@ -57,7 +57,7 @@ var encryptonator = require('encryptonator');
 
 function myFunction(password) {
     //pass in password to encrypt
-    encryptonator.encryptPassword(123, function(hash) {
+    encryptonator.encryptPassword(password, function(hash) {
         console.log(hash);
     });
 };
