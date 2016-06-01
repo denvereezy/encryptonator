@@ -66,7 +66,7 @@ function myFunction(password) {
 ### To compare password with encrypted password
 
 ```javascript
-function myFunction(hash) {
+function myFunction() {
     var password = 'your password';
     var hash = '$2a$10$kAdeR.Z75jyJFVAy1f9/Gevmw3KbNSrQwQR/0pMPalmZE9Bzu7XAK';
     encryptonator.comparePassword(password, hash, function(match) {
