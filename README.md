@@ -3,13 +3,12 @@
 [![Build Status](https://travis-ci.org/denvereezy/encryptonator.svg?branch=master)](https://travis-ci.org/denvereezy/encryptonator)
 
 This module was created to make the process of encrypting passwords more convenient.
-Only supporting promises.
 
 ## How to install
   ` npm install encryptonator`
 
 
-## Basic usage:
+## Basic usage with Promises:
 
 ### To encrypt password
 
@@ -47,5 +46,36 @@ function myFunction(hash) {
         .catch(function(err) {
             next(err);
         });
+};
+```
+## Basic usage with Callbacks:
+
+### To encrypt password
+
+```javascript
+var encryptonator = require('encryptonator');
+
+function myFunction(password) {
+    //pass in password to encrypt
+    encryptonator.encryptPassword(123, function(hash) {
+        console.log(hash);
+    });
+};
+```
+
+### To compare password with encrypted password
+
+```javascript
+function myFunction(hash) {
+    var password = 'your password';
+    var hash = '$2a$10$kAdeR.Z75jyJFVAy1f9/Gevmw3KbNSrQwQR/0pMPalmZE9Bzu7XAK';
+    encryptonator.comparePassword(password, hash, function(match) {
+        if (match) {
+            //if match is true
+            console.log('password is a match');
+        } else {
+            console.log('password is not a match');
+        };
+    });
 };
 ```
