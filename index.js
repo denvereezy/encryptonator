@@ -1,14 +1,14 @@
 const Promise = require('bluebird');
 const bcrypt = require('bcrypt');
 
-exports.encryptPassword = function() {
+exports.encrypt = function() {
     const callback = arguments[1];
-    const passwordToEncrypt = arguments[0].toString();
+    const argumentToEncrypt = arguments[0].toString();
     switch (arguments.length) {
         case 1:
             return new Promise(function(resolve, reject) {
                 bcrypt.genSalt(10, function(err, salt) {
-                    bcrypt.hash(passwordToEncrypt, salt, function(err, hash) {
+                    bcrypt.hash(argumentToEncrypt, salt, function(err, hash) {
                         if (err) {
                             return reject(err);
                         }
@@ -19,7 +19,7 @@ exports.encryptPassword = function() {
             break;
         case 2:
             bcrypt.genSalt(10, function(err, salt) {
-                bcrypt.hash(passwordToEncrypt, salt, function(err, hash) {
+                bcrypt.hash(argumentToEncrypt, salt, function(err, hash) {
                     if (err) {
                         return err;
                     };
@@ -30,14 +30,14 @@ exports.encryptPassword = function() {
     };
 };
 
-exports.comparePassword = function() {
+exports.compare = function() {
     const callback = arguments[2];
-    const passwordToCompare = arguments[0].toString();
+    const argumentToCompare = arguments[0].toString();
     const hash = arguments[1];
     switch (arguments.length) {
         case 2:
             return new Promise(function(resolve, reject) {
-                bcrypt.compare(passwordToCompare, hash, function(err, pass) {
+                bcrypt.compare(argumentToCompare, hash, function(err, pass) {
                     if (err) {
                         return reject(err);
                     }
@@ -46,7 +46,7 @@ exports.comparePassword = function() {
             });
             break;
         case 3:
-            bcrypt.compare(passwordToCompare, hash, function(err, pass) {
+            bcrypt.compare(argumentToCompare, hash, function(err, pass) {
                 if (err) {
                     return reject(err);
                 }
